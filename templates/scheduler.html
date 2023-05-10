@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>Tareas programadas</h1>
+        <hr>
+        {% if tareasRepetitivas|length %}
+            <table>
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Repetir cada</th>
+                    <th>Plazo para completarla</th>
+                    <th>Primera programada</th>
+                    <th>Ultima creada</th>
+                </tr>
+                {% for elemento in tareasRepetitivas %}
+                    <tr id="{{ elemento['id'] }}" onclick="menuTarea(this)">
+                        {% for key, value in elemento.items() %}
+                            {% if key != 'id' %}
+                                <td> {{ value }} </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <h3>No hay tareas programadas</h3>
+        {% endif %}
+     {% endblock %}

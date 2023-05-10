@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>Cargar Tarea</h1>
+        <hr>
+        <div>
+            <nav style="box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.2); display: inline-block; font-size: 0;">
+                <button class="botonPestaña botonPestañaActivo" onclick="cambiarPestaña(0)">Tarea normal</button>
+                <button class="botonPestaña" onclick="cambiarPestaña(1)">Avanzada</button>
+                <button class="botonPestaña" onclick="cambiarPestaña(2)">Repetitiva</button>
+            </nav>
+            <div style="padding: 1rem; width: calc(90% - 2rem); box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2); z-index: 1;">
+                <!--Tarea normal-->
+                <div class="pestañaCarga">
+                    <input type="text" id="TNnombre" placeholder="Nombre..." maxlength="80" class="inputNombre" autocomplete="off">
+                    <textarea type="text" id="TNdescripcion" rows="3" cols="1" wrap="soft" maxlength="320" placeholder="Descripcion..." class="inputDescripcion"></textarea>
+                    <div style="font-size: 1.2rem;padding: 1rem;">
+                        Fecha de culminacion: <input type="date" class="fechaHoy" id="TNfechaCulminacion" onchange="fechaUpdate()"> 
+                        <span id="plazoTiempoReal" style="color: #666; font-size: 1rem;"></span> 
+                    </div>
+                    <button class="botonCarga" onclick="cargarTareaNormal()">Aceptar</button>
+                </div>
+                <!--Tarea custom-->
+                <div class="pestañaCarga esconder">
+                    <input type="text" id="TCnombre" placeholder="Nombre..." maxlength="80" class="inputNombre" autocomplete="off">
+                    <textarea type="text" id="TCdescripcion" rows="3" cols="1" wrap="soft" maxlength="320" placeholder="Descripcion..." class="inputDescripcion"></textarea>
+                    <div style="font-size: 1.2rem;">
+                        <div style="padding: 1rem;">Estado: 
+                            <div style="display: flex; flex-direction: column;">
+                                <div><input type="radio" name="estado" id="estadorad1" value="Alcanzado" class="estadoRad"><label for="estadorad1">Alcanzado</label></div>
+                                <div><input type="radio" name="estado" id="estadorad2" value="En Proceso" class="estadoRad" checked><label for="estadorad2">En proceso</label></div>
+                                <div><input type="radio" name="estado" id="estadorad3" value="No Alcanzado" class="estadoRad"><label for="estadorad3">No alcanzado</label></div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem;">Fecha de propuesta: <input type="date" class="fechaHoy" id="TCfechaPropuesta"></div>
+                        <div style="padding: 1rem;">Fecha de culminacion: <input type="date" class="fechaHoy" id="TCfechaCulminacion"></div>
+                        <!-- <span id="plazoTiempoReal" style="color: #666; font-size: 1rem;"></span>  -->
+                    </div>
+                    <button class="botonCarga" onclick="cargarTareaCustom()">Aceptar</button>
+                </div>
+                <!--Scheduler-->
+                <div class="pestañaCarga esconder">
+                    <input type="text" id="CSnombre" placeholder="Nombre..." maxlength="80" class="inputNombre" autocomplete="off">
+                    <textarea type="text" id="CSdescripcion" rows="3" cols="1" wrap="soft" maxlength="320" placeholder="Descripcion..." class="inputDescripcion"></textarea>
+                    <div style="font-size: 1.2rem;padding: 1rem;">
+                        Fecha de primer tarea: <input type="date" class="fechaHoy" id="CSfechaPrimerTarea"> 
+                        <!-- <span id="plazoTiempoReal" style="color: #666; font-size: 1rem;"></span>  -->
+                    </div>
+                    <div style="font-size: 1.2rem;padding: 1rem;">
+                        Repetir cada:
+                        <input type="number" value="1" min="1" max="99" maxlength="2" id="CSunidadRepetirCada" style="width: 2.4rem;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <select id="CSrepetirCada">
+                            <option value="semanas">Semanas</option>
+                            <option value="meses">Meses</option>
+                            <option value="años">Años</option>
+                        </select>
+                    </div>
+                    <div style="font-size: 1.2rem;padding: 1rem;">
+                        Plazo para completar la tarea:
+                        <input type="number" value="1" min="1" max="99" maxlength="2" id="CSunidadPlazo" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <select id="CSplazo">
+                            <option value="dias">Dias</option>
+                            <option value="semanas">Semanas</option>
+                            <option value="meses">Meses</option>
+                            <option value="años">Años</option>
+                        </select>
+                    </div>
+                    <button class="botonCarga" onclick="cargarTareaScheduler()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div id="pestaña3">
+            <h2>Tarea repetitiva</h2>
+            <div><input type="text" id="nombre"></div>
+            <div><textarea id="descripcion"></textarea></div>
+            <div><input type="date" id="fecha_primer_tarea" ></div>
+            <div><input type="number" value="1" min="1" max="99" maxlength="2" id="unidad_repetir_cada" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></div>
+            <div><select id="repetir_cada">
+                <option value="semanas">Semanas</option>
+                <option value="meses">Meses</option>
+                <option value="años">Años</option>
+            </select></div>
+            <div><input type="number" value="1" min="1" max="99" maxlength="2" id="unidad_plazo" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></div>
+            <div></div><select id="plazo">
+                <option value="dias">Dias</option>
+                <option value="semanas">Semanas</option>
+                <option value="meses">Meses</option>
+                <option value="años">Años</option>
+            </select></div>
+
+        </div> -->
+
+
+
+        <!-- <div style="display: none;"><div>Estado: <input type="radio" name="estado" value="alcanzado"> Alcanzado <input type="radio" name="estado" value="en_proceso" checked> En Proceso <input type="radio" name="estado" value="no_alcanzado"> No Alcanzado</div>
+            <div>Fecha de Propuesta: <input type="date" class="fechaHoy" value="fecha_de_propuesta"></div></div> -->
+
+        <!-- <button class="botonPestaña" style="background-color: #fff; box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.2); z-index: 1;">Tarea normal</button>
+        <button class="botonPestaña" style="box-shadow: 0px -2px 3px -1px rgba(0,0,0,0.2);">Avanzada</button>
+        <button class="botonPestaña" style="box-shadow: 2px -2px 4px -1px rgba(0,0,0,0.2);">Repetitiva</button> -->
+        
+        <!-- <div>
+            <h2>Tarea normal</h2>
+            <div>Nombre: <input type="text" id="nombre"></div>
+            <div>Descripcion: <textarea id="descripcion"></textarea></div>
+            <div>Estado: <input type="radio" name="estado" value="alcanzado"> Alcanzado <input type="radio" name="estado" value="en_proceso" checked> En Proceso <input type="radio" name="estado" value="no_alcanzado"> No Alcanzado</div>
+            <div><input type="date" value="fecha_de_propuesta"></div>
+            <div><input type="date" value="fecha_de_culminacion"></div>
+        </div> -->
+    {% endblock %}

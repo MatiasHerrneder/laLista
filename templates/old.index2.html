@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h2 id="porVencer">Por vencer</h2>
+        {% if tareasPorVencer|length %}
+            <table id="tablaPorVencer">
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias Restantes</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareasPorVencer %}
+                    <tr>
+                        {% for key, value in elemento.items() %}
+                            <td> {{ value }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button onclick="window.location.href='/porVencer'">Ver todas</button>
+        {% else %}
+            <h4>No hay tareas</h4>
+        {% endif %}
+        <!--
+            <button class="botonPuntitos"><li class="puntitos"><li class="puntitos"><li class="puntitos"></li></li></li></button>.botonPuntitos {background: none;outline: none;}.puntitos {background: none repeat scroll 0 0 black;height: 7px;width: 7px;line-height: 0;list-style: none outside none;margin-right: 15px;margin-top: 3px;vertical-align: top;border-radius: 50%;pointer-events: none;}
+        -->
+        <h3 id="cortoPlazo">Corto plazo</h3>
+        {% if tareasCortoPlazo|length %}
+            <table id="tablaCortoPlazo">
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias Restantes</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareasCortoPlazo %}
+                    <tr>
+                        {% for key, value in elemento.items() %}
+                            <td> {{ value }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button onclick="window.location.href='/cortoPlazo'">Ver todas</button>
+        {% else %}
+            <h4>No hay tareas</h4>
+        {% endif %}
+        <h3 id="medianoPlazo">Mediano plazo</h3>
+        {% if tareasMedianoPlazo|length %}
+            <table id="tablaMedianoPlazo">
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias Restantes</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareasMedianoPlazo %}
+                    <tr>
+                        {% for key, value in elemento.items() %}
+                            <td> {{ value }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button onclick="window.location.href='/medianoPlazo'">Ver todas</button>
+        {% else %}
+            <h4>No hay tareas</h4>
+        {% endif %}
+        <h3 id="largoPlazo">Largo plazo</h3>
+        {% if tareasLargoPlazo|length %}
+            <table id="tablaLargoPlazo">
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias Restantes</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareasLargoPlazo %}
+                    <tr>
+                        {% for key, value in elemento.items() %}
+                            <td> {{ value }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button onclick="window.location.href='/largoPlazo'">Ver todas</button>
+        {% else %}
+            <h4>No hay tareas</h4>
+        {% endif %}
+        <h2 id="tareasExpiradas">Tareas Expiradas</h2>
+        {% if tareasExpiradas|length %}
+            <table id="tablaExpiradas">
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias de Atraso</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareasExpiradas %}
+                    <tr>
+                        {% for key, value in elemento.items() %}
+                            <td> {{ value }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button onclick="window.location.href='/expiradas'">Ver todas</button>
+        {% else %}
+            <h4>No hay tareas</h4>
+        {% endif %}
+        <h2 id="cargarTarea">Cargar Tarea</h2>
+    {% endblock %}

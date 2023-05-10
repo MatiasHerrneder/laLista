@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>{{ nombre }}</h1>
+        <table>
+            {% if tareas|length %}
+                <tr>
+                    <th>Propuesta</th>
+                    <th>Dias Restantes</th>
+                    <th>Fecha de Culminación</th>
+                    <th>Plazo</th>
+                </tr>
+                {% for elemento in tareas %}
+                <tr>
+                    {% for key, value in elemento.items() %}
+                    <td> {{ value }} </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            {% else %}
+                <h4>No hay tareas</h4>
+            {% endif %}
+    {% endblock %}

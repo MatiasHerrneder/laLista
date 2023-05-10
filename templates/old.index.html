@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>La Lista</title>
+    <!--<link rel="icon" href="./favicon.ico" type="image/x-icon">-->
+    <!-- css y js -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      La Lista
+      <nav>
+        <a href="#porVencer" class="botonArriba">Por Vencer</a>
+        <a href="#cortoPlazo" class="botonArriba">Corto Plazo</a>
+        <a href="#medianoPlazo" class="botonArriba">Mediano Plazo</a>
+        <a href="#largoPlazo" class="botonArriba">Largo Plazo</a>
+        <a href="#cargarTarea" class="botonArriba">Cargar Tarea</a>
+        <a href="#tareasExpiradas" class="botonArriba">Tareas Expiradas</a>
+      </nav>
+    </header>
+    <main>
+      <h1>La Lista</h1>
+      <h2 id="porVencer">Por vencer</h2>
+      <table id="tablaPorVencer">
+        <tr>
+          <th>Propuesta</th>
+          <th>Dias Restantes</th>
+          <th>Fecha de Culminación</th>
+          <th>Plazo</th>
+        </tr>
+        <tr>
+          <td>LA GRAN PROPUESTA NUMERO UNO</td>
+          <td>12</td>
+          <td>10/3/23</td>
+          <td>Largo</td>
+        </tr>
+        <tr>
+          <td>La doh</td>
+          <td>12</td>
+          <td>10/3/23</td>
+          <td>Largo</td>
+        </tr>
+        <tr>
+          <td>La doh</td>
+          <td>12</td>
+          <td>10/3/23</td>
+          <td>Largo</td>
+        </tr>
+        <tr>
+          <td>La doh</td>
+          <td>12</td>
+          <td>10/3/23</td>
+          <td>Largo</td>
+        </tr>
+        <tr>
+          <td>La doh</td>
+          <td>12</td>
+          <td>10/3/23</td>
+          <td>Largo</td>
+        </tr>
+      </table>
+      <!--
+        <button class="botonPuntitos"><li class="puntitos"><li class="puntitos"><li class="puntitos"></li></li></li></button>.botonPuntitos {background: none;outline: none;}.puntitos {background: none repeat scroll 0 0 black;height: 7px;width: 7px;line-height: 0;list-style: none outside none;margin-right: 15px;margin-top: 3px;vertical-align: top;border-radius: 50%;pointer-events: none;}
+      -->
+      <button onclick="window.location.href='/porVencer'">Ver todas</button>
+      <h2 id="cortoPlazo">Corto plazo</h2>
+      <table id="tablaCortoPlazo">
+        <tr>
+          <th>Tarea</th>
+          <th>Fecha de culminacion</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>10/3/23</td>
+        </tr>
+      </table>
+      <button>Ver todas</button>
+      <h2 id="medianoPlazo">Mediano plazo</h2>
+      <table id="tablaMedianoPlazo">
+        <tr>
+          <th>Tarea</th>
+          <th>Fecha de culminacion</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>10/3/23</td>
+        </tr>
+      </table>
+      <button>Ver todas</button>
+      <h2 id="largoPlazo">Largo plazo</h2>
+      <table id="tablaLargoPlazo">
+        <tr>
+          <th>Tarea</th>
+          <th>Fecha de culminacion</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>10/3/23</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>15/3/23</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>10/3/23</td>
+        </tr>
+      </table>
+      <button>Ver todas</button>
+      <h2 id="cargarTarea">Cargar Tarea</h2>
+      <h2 id="tareasExpiradas">Tareas Expiradas</h2>
+    </main>
+  </body>
+  </html>

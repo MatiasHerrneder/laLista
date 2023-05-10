@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>La Lista</title>
+    <!--<link rel="icon" href="./favicon.ico" type="image/x-icon">-->
+    <!-- css y js -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header style="z-index: 100;">
+      <span>La Lista</span>
+      <nav class="mainNav">
+        <!-- <span class="botonArriba"><a href="#porVencer">Por vencer</a></span>
+          <span class="botonArriba"><a href="#cortoPlazo">Corto plazo</a></span>
+          <span class="botonArriba"><a href="#medianoPlazo">Mediano plazo</a></span>
+          <span class="botonArriba"><a href="#largoPlazo">Largo plazo</a></span>
+          <span class="botonArriba"><a href="#tareasExpiradas">Tareas expiradas</a></span>
+          <span class="botonArriba"><a href="#cargarTarea">Cargar tarea</a></span> -->
+          <a href="/.">Por Vencer</a>
+          <a href="/cortoPlazo">Corto Plazo</a>
+          <a href="/medianoPlazo">Mediano Plazo</a>
+          <a href="/largoPlazo">Largo Plazo</a>
+          <!-- <a href="/tareasExpiradas">Tareas Expiradas</a> -->
+          <a href="/cargarTarea">Cargar Tarea</a>
+          <a href="/scheduler">Tareas Programadas</a>
+        </nav>
+      </header>
+      <main>
+        <!-- <h1>La Lista</h1> -->
+        {% block content %}
+        {% endblock %}
+      </main>
+    <br>
+    <div id="popupTareaContainer" class="popupContainer" >
+      <div class="popupTarea">
+        <div>
+          <h3 id="popupNombre"></h3>
+          <span id="popupBotonesIniciales">
+            <button onclick="menuTareaEditar()">Modificar</button>
+            <button onclick="menuTareaBorrar()">Borrar</button>
+          </span>
+          <span id="popupBotonesEditar" style="display:none">
+            <button onclick="menuTareaEditarCancelar()">Cancelar</button>
+            <button onclick="menuTareaEditarAceptar()">Aceptar</button>
+          </span>
+        </div>
+        <hr>
+        <div>Descripcion: <span id="popupDescripcion" class="hacerInput"></span></div>
+        <div>Estado: <span id="popupEstado" class="hacerInput"></span></div>
+        <div id="popupDiasRestantesContainer"><span id="popupRestantesAtraso"></span><span id="popupDiasRestantes" class="hacerInput"></span></div>
+        <div id="popupPlazoContainer">Plazo: <span id="popupPlazo" class="hacerInput"></span></div>
+        <div>Fecha de Propuesta: <span id="popupFechaDePropuesta" class="hacerInput"></span></div>
+        <div>Fecha de Culminacion: <span id="popupFechaDeCulminacion" class="hacerInput"></span></div>
+      </div>
+    </div>
+    <div id="popupMensaje" class="popupContainer">
+      <div class="popupTarea">
+        <div id="popupMensajeEdit">La tarea fue actualizada</div>
+        <button onclick="recargarPagina()">Aceptar</button>
+      </div>
+    </div>
+    <div id="popupBorrarContainer" class="popupContainer">
+      <div class="popupTarea">
+        <div>Se borrara la tarea</div>
+        <button onclick="menuTareaBorrarAceptar()">Aceptar</button>
+        <button onclick="menuTareaBorrarCancelar()">Cancelar</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+/* Documento */
+
+html, body {
+    /* font: 14px/1.5 Arial, sans-serif; */
+    font: 16px/1.5 Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
+    padding: 0 20px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1400px;
+    height: 100%;
+    padding: 0px;
+}
+
+body {
+    position: absolute;
+}
+
+/* Nav bar */
+
+header {
+    color: #fff;
+    background-color: #222;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    /* width: 90%;
+    max-width: 1400px; */
+    text-align: center;
+}
+
+header span {
+    font-size: x-large;
+    height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+nav {
+    display: flex;
+    /*justify-content: flex-end; /************ la forma que encontre de evitar que quedara un espacio de 1px aveces a la derecha ************/
+}
+
+nav a {
+    flex: 1 1 100%;
+    padding: none;
+    margin: none;
+    height: 2rem;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a:hover {
+    color:#000;
+    background-color: #eee;
+    transition: cubic-bezier(0.2, 0.6, 0.6, 0.2) 0.2s;
+}
+
+/* General */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #222;
+    margin: 1em 0;
+    padding: 0;
+    width: 90%;
+}
+
+main > h1 {
+    padding-top: 5.5rem;
+}
+
+main > h2 {
+    padding-top: 3rem;
+}
+
+main > h3 {
+    padding-top: 2rem;
+}
+
+/* Tablas de tareas */
+
+table {
+    width: 75%;
+    /* border-spacing: 0; */
+}
+
+th {
+    left: 0px;
+    text-align: left;
+}
+
+td {
+    border-top: 1px solid black;
+    width: 1%;
+    margin: none;
+}
+
+tr + tr:hover {
+    background-color: pink;
+    cursor: pointer;
+    transition: cubic-bezier(0.2, 0.6, 0.6, 0.2) 0.1s;
+}
+
+/* #popupTarea {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+} */
+
+.popupTarea {
+    position: fixed;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+}
+
+.popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 100;
+}
+
+/* Input de carga de tarea */
+
+input, textarea, select, button { 
+    font-family:inherit; 
+}
+
+.inputNombre {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    width: 90%;
+}
+
+.inputDescripcion {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word; 
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    padding: 0.7rem;
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid #ddd;
+    width: 90%;
+    margin-top: 0.6rem;
+}
+
+input[type="date"], input[type="number"], select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    background-color: #ededed;
+}
+/* button:hover {
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s ease;
+    overflow: hidden;
+} */
+
+.botonPestaña {
+    /* padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    background-color: #ededed; */
+    border: none;
+} 
+
+.botonPestañaActivo {
+    background-color: #fff;
+}
+
+.botonCarga {
+    /* padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    background-color: #ededed; */
+    position: relative;
+    left: calc(100% - 6rem);
+    padding: 0.5rem 1rem 0.5rem 1rem ;
+}
+
+.pestañaCarga {
+    position:relative;
+}
+
+.estadoRad {
+    margin: 0px;
+    margin-right: 1rem;
+    margin-left: 1.5rem;
+}
+
+.esconder {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .mainNav {
+      display: none;
+    }
+}
+
+  /* PONER UNA LINITA ABAJO DE LA LISTA? */
+
+  
